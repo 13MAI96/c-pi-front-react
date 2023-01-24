@@ -1,5 +1,5 @@
-import { useSelector, useDispatch } from 'react-redux'
-import { deletePeople } from '../../store/people-slice';
+import { useDispatch } from 'react-redux';
+import peopleService from '../../services/people.service';
 
 const Card = (props) => {
     const dispatch = useDispatch()
@@ -11,7 +11,7 @@ const Card = (props) => {
                 <p>Genero: {props.data.genero}</p>
             </div>
             <div className="card-delete-button">
-                <button onClick={() => dispatch(deletePeople(props.index))}>Eliminar</button>
+                <button onClick={() => peopleService.deleteAndFilter(dispatch, props.data.id)}>Eliminar</button>
             </div>
         </div>
     )

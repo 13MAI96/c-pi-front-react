@@ -2,12 +2,15 @@ import { useSelector } from "react-redux";
 import Card from "../card/card";
 
 const CardList = () => {
-    const cards = useSelector((state) => state.people.filterValue)
+    const filterText = useSelector((state) => state.people.filterText)
+    const cards = useSelector((state) => state.people.value)
     return (
         <div className="card-list">
             {
                 cards.map((card,index) => {
-                    return <Card key={index} index={index} data={card}></Card>
+                    if(filterText == "" || card.nombre.toLowerCase().includes(filterText)){
+                        return <Card key={index} data={card}></Card>
+                    }
                 })
             }
         </div>
