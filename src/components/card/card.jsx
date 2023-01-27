@@ -11,7 +11,7 @@ const Card = (props) => {
                 <p>Genero: {props.data.genero}</p>
             </div>
             <div className="card-delete-button">
-                <button onClick={() => peopleService.deleteAndFilter(dispatch, props.data.id)}>Eliminar</button>
+                <button onClick={() => peopleService.deletePeople(dispatch, props.data.id)}>Eliminar</button>
             </div>
         </div>
     )
